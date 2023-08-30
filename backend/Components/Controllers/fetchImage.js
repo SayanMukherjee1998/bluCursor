@@ -25,11 +25,12 @@ const FetchImgController = async (req, res) => {
   /**
    * Main function that handles the request and response
    */
+  const FailureMsg = "Internal Error Occured";
+
   try {
     const fullData = await getImg();
     const FilteredData = await FilterImg(fullData);
     const successMsg = "Full Data received";
-    const FailureMsg = "Internal Error Occured";
     res
       .status(200)
       .json({ success: true, message: successMsg, data: FilteredData });
